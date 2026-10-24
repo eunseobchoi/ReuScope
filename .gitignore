@@ -1,0 +1,23 @@
+# Only source, required configuration and minimal documentation are public.
+*
+!/training/
+!/training/src/
+!/training/src/utils/
+!/.gitignore
+!/README.md
+!/LICENSE
+!/CITATION.cff
+!/THIRD_PARTY_NOTICES.md
+!/requirements.txt
+!/evaluate.py
+!/evaluation.py
+!/training/README.md
+!/training/crossmodel.py
+!/training/check_cpu.py
+!/training/crossmodel_weight_hashes.json
+!/training/src/primary.py
+!/training/src/confidence.py
+!/training/src/cross_model.py
+!/training/src/dataset_official.py
+!/training/src/utils/dataset_kvasir_official.py
+!/training/src/utils/path_resolution.py

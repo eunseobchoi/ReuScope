@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this code or research, please cite the paper below."
+type: software
+title: "ReuScope: Auditing Data Reuse and Evaluation Sensitivity in Capsule Vision 2024"
+authors:
+  - family-names: Choi
+    given-names: Eunseob
+    affiliation: Gwangju Institute of Science and Technology
+  - family-names: Kim
+    given-names: Kyeonghun
+    affiliation: OUTTA
+  - family-names: Lee
+    given-names: Hyuk-Jae
+    affiliation: Seoul National University
+  - family-names: Kim
+    given-names: Nam-Joon
+    affiliation: Seoul National University
+url: "https://github.com/eunseobchoi/ReuScope"
+repository-code: "https://github.com/eunseobchoi/ReuScope"
+keywords:
+  - benchmark auditing
+  - capsule endoscopy
+  - train-validation overlap
+  - evaluation sensitivity
+preferred-citation:
+  type: conference-paper
+  title: "ReuScope: Auditing Data Reuse and Evaluation Sensitivity in Capsule Vision 2024"
+  authors:
+    - family-names: Choi
+      given-names: Eunseob
+    - family-names: Kim
+      given-names: Kyeonghun
+    - family-names: Lee
+      given-names: Hyuk-Jae
+    - family-names: Kim
+      given-names: Nam-Joon
+  collection-title: "NeurIPS 2026 Evaluations and Datasets Track"
+  year: 2026
+  url: "https://openreview.net/forum?id=69GCzBgr1S"
