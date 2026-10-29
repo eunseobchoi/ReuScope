@@ -1,0 +1,48 @@
+{
+  "producer": "Primary DINOv2-L/14 runs (11 pools x seeds 0-9) and local-removal runs (4 arms x seeds 4-9, 14-17)",
+  "archived_producers": {
+    "primary": {
+      "sha256": "3ffbbb46a5e71a3d0446436834616aa2252f78305e0d7f96e08f1187b90aa96c",
+      "runs": 110
+    },
+    "local": {
+      "sha256": "666605b947e682ebe0ec9dc4da76ebe93b3bcaa89c358c7eabb42d1aabf00912",
+      "run_recorded_git_commit": "258cf38f5fb955fac53bbaa96d2dfc596a7442ed",
+      "runs": 40
+    }
+  },
+  "files": {
+    "primary.py": "645de0a6e939840d94ed23f564e662a80ac823624116ba5b5b334b5d594d54e2",
+    "local.py": "094cdc6b69bd68c5d091ba3e36e9d3429b22d89f97727c409fa3d15f8f6e735d",
+    "dinov2_training.py": "ebe7c13eecf0d9ab9e17cc3c2c3e3bae80866c675567d4ed8107763a98ee408a",
+    "predict.py": "1e8276c0fbacd94795dd5f3ff16e61b637172009123bfd731ccf54be9dbea2ee",
+    "utils/path_resolution.py": "bc68fb2708f56382ca7ab8a1e0d7cdf4b382eadf64d40a9551946d097d67e5ac",
+    "utils/input_validation.py": "464a0fc400504ac2757bb552be6d87f8a7a8b07c2556086853c747084ae67a33",
+    "utils/dataset_kvasir_official.py": "e5d79482d170714486f930ff87b946005bc543899038ff53e665ccfcdff0cb8e"
+  },
+  "equivalence_check": "On reduced CPU inputs with the real DINOv2 classes, primary.py/local.py and the archived producers give identical trainable tensors (85), RNG state, losses and epoch metrics over four epochs. This is not a GPU bitwise check.",
+  "changes_from_archived_producers": [
+    "One shared module with primary/local recipe selection; local keeps macro-F1 over the union of true and predicted labels, primary over represented true labels.",
+    "Local DINOv2 source and dataset roots from environment variables; optional explicit frozen weights for inference.",
+    "Strict CSV input validation; row order, duplicates and class mapping preserved.",
+    "Checkpoint recipe metadata and strict key/shape/dtype checks; saved tensors unchanged.",
+    "Output-path safety and provenance fields; CPU runs disable autocast (CUDA runs keep FP16 autocast and gradient scaling)."
+  ],
+  "recorded_environment": {
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "cudnn": 90100,
+    "primary_campaign": {
+      "torchvision": "0.21.0+cu124",
+      "pillow": "12.1.1",
+      "gpu": "NVIDIA A100-SXM4-80GB, one visible device per fit"
+    },
+    "local": {
+      "gpu": "one A100-SXM4-80GB, RTX A6000 or L40S per seed"
+    }
+  },
+  "not_recorded": [
+    "DINOv2 Torch Hub revision",
+    "Per-fit frozen-weight digest"
+  ]
+}

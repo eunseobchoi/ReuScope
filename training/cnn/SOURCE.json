@@ -1,0 +1,92 @@
+{
+  "producer": "Reported CNN runs: ResNet-50 and ConvNeXt-Tiny x Full/Source-only/Random x seeds 0-9 (60 fits)",
+  "files": {
+    "src/trainer.py": {
+      "archived_sha256": "964f56ffa0818d5e971f36e9068beaf3d0bf694b041aa4e426ef4d800a07a6ef",
+      "sha256": "59c2a2f282267e2d57ccb50ab9be235cf3f2b545cc5b9af732563e845ac8d3ae",
+      "change": "Documentation strings revised; executable code (AST without docstrings) identical to the archived trainer"
+    },
+    "src/dataset_official.py": {
+      "sha256": "9343526a62b5e2e06ddd16803be8668db038d748a10546bf6152043e3c60e9be",
+      "change": "None (byte-identical)"
+    },
+    "src/utils/dataset_kvasir_official.py": {
+      "sha256": "0691bcdbb809cab085e95470a21e470d3387d605d8dfc2aaf812acf332a1fb5e",
+      "change": "None (byte-identical)"
+    },
+    "run.py": {
+      "archived_sha256": "7816da75d881b4c6a13437f5a220a166519316594f8cf8539e72b565f7d67f2e",
+      "change": "Package-relative paths and CLI limited to the reported implementation; inventory, observe, snapshot, restore and pinned_builder are AST-identical to the archived runner",
+      "sha256": "0c771e4c0c086214ca9dead65ae21ef670da69308f69ccd47f42d775c41a4f00"
+    },
+    "predict.py": {
+      "sha256": "65fe6be7f540d6a562d90f065b22b9b2d7c7e7fc0567a5deeadcec8d98a9b321",
+      "change": "Inference entry point written for this release"
+    }
+  },
+  "recorded_environment": {
+    "python": "3.10.18",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "pillow": "12.1.1",
+    "cuda": "12.4",
+    "cudnn": 90100,
+    "gpu": "NVIDIA A100-SXM4-80GB"
+  },
+  "config": {
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "cbw_beta": 0.999,
+    "train_workers": 6,
+    "drop_last": true,
+    "preprocessing": "Compose(\n    Resize(size=256, interpolation=bilinear, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    ToTensor()\n    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])\n)",
+    "scheduler": "CosineAnnealingLR",
+    "amp": {
+      "resnet50": "float16",
+      "convnext_tiny": "bfloat16"
+    },
+    "determinism": "seeded warn-only; not bit-exact"
+  },
+  "epochs": 10,
+  "batch": 128,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "skip_kvasir_eval": true,
+  "pools": {
+    "baseline": "Full (37,607 rows)",
+    "le6": "Source-only (10,596 rows)",
+    "random": "Random (10,596 rows)",
+    "orig_val": "Public validation (16,132 rows)",
+    "dedup_val": "Non-KVASIR validation (4,551 rows)"
+  },
+  "archived_list_sha256": {
+    "baseline": "1a0163fa7d7e35b5c7ca2daf0896206d47f116c521c18c73dcfc039c76cb8dbc",
+    "le6": "9b17a218c183fd69590e26d79165ddd77671651e5d9641542211d9a1c8628c58",
+    "random": "7a8ebe06c8a53e61b6c893f4868b371c5db22c10ce3d44604420df6662649a16",
+    "orig_val": "dcef93a8da0ff0279ace4a2bd56aa8c0280f903e808cde9af26db46dceeb24f4",
+    "dedup_val": "0e1ca377c29b4723d3fbb217f3865c74e55ed67d38353d4f7782cfe40d6eaf5c"
+  },
+  "pretrained_weight_sha256": {
+    "resnet50": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+    "convnext_tiny": "983f1562536e84ff750a1576fb08e54de751dbf2e17c0d8a4a13704341fdcd3d"
+  },
+  "notes": [
+    "archived_list_sha256 identifies the original list files of the runs; training/prepare.py writes the same rows in the same order with different serialization (see training/lists.sha256).",
+    "Strings inside src/trainer.py (for example its unused command-line metadata) are kept as archived so that its executable code stays identical."
+  ]
+}

@@ -1,0 +1,492 @@
+{
+  "schema_version": 1,
+  "upstream_repository": "https://github.com/palaxydf/Capsule-Vision-2024-Challenge",
+  "upstream_commit": "de38787e8267f763a5f59695c67bb6d28ece70bf",
+  "validation_workbook_sha256": "de88d19a43a0d30951678f763122622e562412c19911e6156effd77b5a6d4de1",
+  "raw_scores": "No softmax, normalization, clipping or probability conversion.",
+  "cohorts": {
+    "all_25": [
+      "Team A",
+      "Team B",
+      "Team C",
+      "Team D",
+      "Team E",
+      "Team F",
+      "Team G",
+      "Team H",
+      "Team I",
+      "Team J",
+      "Team K",
+      "Team L",
+      "Team M",
+      "Team N",
+      "Team O",
+      "Team P",
+      "Team Q",
+      "Team R",
+      "Team S",
+      "Team T",
+      "Team U",
+      "Team V",
+      "Team W",
+      "Team X",
+      "Team Y"
+    ],
+    "primary_24": [
+      "Team A",
+      "Team B",
+      "Team C",
+      "Team D",
+      "Team E",
+      "Team F",
+      "Team H",
+      "Team I",
+      "Team J",
+      "Team K",
+      "Team L",
+      "Team M",
+      "Team N",
+      "Team O",
+      "Team P",
+      "Team Q",
+      "Team R",
+      "Team S",
+      "Team T",
+      "Team U",
+      "Team V",
+      "Team W",
+      "Team X",
+      "Team Y"
+    ],
+    "subset_19": [
+      "Team A",
+      "Team B",
+      "Team C",
+      "Team D",
+      "Team E",
+      "Team F",
+      "Team H",
+      "Team I",
+      "Team J",
+      "Team K",
+      "Team L",
+      "Team M",
+      "Team N",
+      "Team O",
+      "Team P",
+      "Team Q",
+      "Team R",
+      "Team S",
+      "Team T"
+    ],
+    "subset_without_A_18": [
+      "Team B",
+      "Team C",
+      "Team D",
+      "Team E",
+      "Team F",
+      "Team H",
+      "Team I",
+      "Team J",
+      "Team K",
+      "Team L",
+      "Team M",
+      "Team N",
+      "Team O",
+      "Team P",
+      "Team Q",
+      "Team R",
+      "Team S",
+      "Team T"
+    ]
+  },
+  "submissions": [
+    {
+      "alias": "Team A",
+      "scoreable": true,
+      "workbook_sha256": "1c0c81b27da70474a543a7bf22412dce7e9c22305070100ba05e8c9a78ee17e7",
+      "validation_report_sha256": "cf78f885c7e62c5755d1f00cfe4982271cbfcbf37aa8d92cf8a2eb7b18791dfc",
+      "official_report_sha256": "41e996cf419db977aaa5b67581ff5d585fd442ca9173035cdb486bf02e6e9aaa",
+      "organizer_validation": {
+        "mean_auc": 1.0,
+        "balanced_accuracy": 1.0
+      },
+      "organizer_official": {
+        "mean_auc": 0.5821777693962819,
+        "balanced_accuracy": 0.1398035669269863
+      }
+    },
+    {
+      "alias": "Team B",
+      "scoreable": true,
+      "workbook_sha256": "4c5a01b232e8b8695a1605b2085c26ec7504d8047635eb0300cd8084eefee0a1",
+      "validation_report_sha256": "e04c045b224d38e3559abb6718f3562f05ac63504ee50cd94c88e37afcd714c2",
+      "official_report_sha256": "588a6becd90101d1bc7aa69b5491bd3ff9772769de01f4c30a1e0952b05481e0",
+      "organizer_validation": {
+        "mean_auc": 0.9997905010421038,
+        "balanced_accuracy": 0.9645946453423649
+      },
+      "organizer_official": {
+        "mean_auc": 0.6432135602122979,
+        "balanced_accuracy": 0.22707829669608665
+      }
+    },
+    {
+      "alias": "Team C",
+      "scoreable": true,
+      "workbook_sha256": "b42e36ddc9db002d9de9ac33bd3ae02eeba8bab34a9f22c10cbd77b55fed5aec",
+      "validation_report_sha256": "937587bab91d7ff1d28732b59d437b7c2fec6cd6e0751d07ac7ea2af3e2f0245",
+      "official_report_sha256": "144c4fec1487490614b2484e3075e34fb69d8eeb6e166c2f836a1e0984eb3855",
+      "organizer_validation": {
+        "mean_auc": 0.9918443043555175,
+        "balanced_accuracy": 0.9159058129658341
+      },
+      "organizer_official": {
+        "mean_auc": 0.7625353454239948,
+        "balanced_accuracy": 0.3710300769183107
+      }
+    },
+    {
+      "alias": "Team D",
+      "scoreable": true,
+      "workbook_sha256": "2e733b5ce139f9a17cb301df8a2f325e351ea71ec9a3d0c07cc88a5288e7edab",
+      "validation_report_sha256": "079d3ef169d5ce2831bc771cd5dd016ca75883e0acb83c1e7b1a2b8de67bb059",
+      "official_report_sha256": "4cb473bb6248a3bd8afa0f64473479d4506775c5996bb488410ce6b2c780d929",
+      "organizer_validation": {
+        "mean_auc": 0.9930888554125838,
+        "balanced_accuracy": 0.8693226305489539
+      },
+      "organizer_official": {
+        "mean_auc": 0.7632455382515035,
+        "balanced_accuracy": 0.33663134956117685
+      }
+    },
+    {
+      "alias": "Team E",
+      "scoreable": true,
+      "workbook_sha256": "ce64e82fad44129457e8302cb0feeb5fc7c43a70be7ef24e952df583870b147a",
+      "validation_report_sha256": "ea702fe82f6959c712867b3c3942181fe2556f9be7ebf7d81b4678c49993d368",
+      "official_report_sha256": "9996c03e3bf1c44baa14a9dc8336c58fc893b4447f8c68f9746b3790c85d00d8",
+      "organizer_validation": {
+        "mean_auc": 0.9895741387134447,
+        "balanced_accuracy": 0.8634372347243244
+      },
+      "organizer_official": {
+        "mean_auc": 0.746079973613093,
+        "balanced_accuracy": 0.3467811598580805
+      }
+    },
+    {
+      "alias": "Team F",
+      "scoreable": true,
+      "workbook_sha256": "e5ea4c3ebf8dc4bb40e97cd1eda9e1bb8a4d1205ea1893ae1cb4c2819552fd15",
+      "validation_report_sha256": "5fe835347accdbef07b39e8b44a7219d6a4cfd82d326fe88c72721f3eb9179fd",
+      "official_report_sha256": "91010f023f608902ea26489601715222ee7708e9df1f3e987b4b34e15ead4bd9",
+      "organizer_validation": {
+        "mean_auc": 0.9932449361720256,
+        "balanced_accuracy": 0.8595115357916739
+      },
+      "organizer_official": {
+        "mean_auc": 0.7313885957247453,
+        "balanced_accuracy": 0.3234582545813109
+      }
+    },
+    {
+      "alias": "Team G",
+      "scoreable": true,
+      "workbook_sha256": "95fbddff1fc57a94559032c2b669f55110ad34111a1f23857d3913c12de672ad",
+      "validation_report_sha256": "c60946ee8d53710f6bad549ebfccf249054b99f6e10a41dfce6e38136e326d7f",
+      "official_report_sha256": "2312cf70559f97d7e3f6f83974255b2c498279e389f4516ca42adf50f85c2985",
+      "organizer_validation": {
+        "mean_auc": 0.9443924957072518,
+        "balanced_accuracy": 0.8993125202813637
+      },
+      "organizer_official": {
+        "mean_auc": 0.7271482530785047,
+        "balanced_accuracy": 0.33593417633387646
+      }
+    },
+    {
+      "alias": "Team H",
+      "scoreable": true,
+      "workbook_sha256": "d22f37ca317011de5250ee5ab2289ad97649deb368da0a038816293f606dcbc9",
+      "validation_report_sha256": "0cbb5d1ae7b9b4a17654a19db7827de6135bc97f6cd9adf7752e977757f942db",
+      "official_report_sha256": "4954e85c928d2b5c539b295f7fc1d3e0acd7c092612f4470a0ad7fdd655190e3",
+      "organizer_validation": {
+        "mean_auc": 0.9939713151111527,
+        "balanced_accuracy": 0.8464360551742842
+      },
+      "organizer_official": {
+        "mean_auc": 0.7736101984804552,
+        "balanced_accuracy": 0.3719341002011956
+      }
+    },
+    {
+      "alias": "Team I",
+      "scoreable": true,
+      "workbook_sha256": "326359c5dc6d56989fdcf258370ca3d9458db8f03769bbfabc162642531b652a",
+      "validation_report_sha256": "a4cc727f01db9146a86957ba654dd52953f620baae3c945c3932ae090509ea24",
+      "official_report_sha256": "201e8cd0792dfdc3a185c8cfb5ac4ad7984974266fc82ee2e1a537265030beab",
+      "organizer_validation": {
+        "mean_auc": 0.9885766446479668,
+        "balanced_accuracy": 0.84190092878431
+      },
+      "organizer_official": {
+        "mean_auc": 0.6426787804902923,
+        "balanced_accuracy": 0.2363980606116915
+      }
+    },
+    {
+      "alias": "Team J",
+      "scoreable": true,
+      "workbook_sha256": "0eccda2b461373166415c1ac547a0ab087036cf0bd40ccd32fa4b8263eed701e",
+      "validation_report_sha256": "7ef8b3ced3a381aaedd4cb0ac0c94da7f04b324851d93bde02ab938b2efa2c80",
+      "official_report_sha256": "2b841f6f232deca8f0e0223679417e58feee779d880fac48fc745d85877e465f",
+      "organizer_validation": {
+        "mean_auc": 0.9925208448841835,
+        "balanced_accuracy": 0.8312666952405404
+      },
+      "organizer_official": {
+        "mean_auc": 0.7237849719968785,
+        "balanced_accuracy": 0.2617322364073281
+      }
+    },
+    {
+      "alias": "Team K",
+      "scoreable": true,
+      "workbook_sha256": "0441300053250117c2f5a4c9770a2801ac6e37a08a173be92aaab8249617af00",
+      "validation_report_sha256": "000530ee5e4ff77b975631b5c49ec80afddd028d441cdaac3d0b296aa878faa4",
+      "official_report_sha256": "15c8ee01fdf186f7318440b63066f0f518d786cf24d387fe3f7fa57fd3e556f8",
+      "organizer_validation": {
+        "mean_auc": 0.9917554968905311,
+        "balanced_accuracy": 0.8312413310016238
+      },
+      "organizer_official": {
+        "mean_auc": 0.6968434664267342,
+        "balanced_accuracy": 0.2465738627743212
+      }
+    },
+    {
+      "alias": "Team L",
+      "scoreable": true,
+      "workbook_sha256": "47225c0973ff9a66ebfc2680c0094da7c5309805a934d5580356c50f360a1912",
+      "validation_report_sha256": "9c5cfeb09e185eacacc25ab6c3df7f6e000ed6888005624eafeac571e004f880",
+      "official_report_sha256": "53918c6aa00b319af6c1d0a77fff135bd15c32aec7864c55e6d0427bc8ce0d7f",
+      "organizer_validation": {
+        "mean_auc": 0.9867449627022801,
+        "balanced_accuracy": 0.8305751765072996
+      },
+      "organizer_official": {
+        "mean_auc": 0.7364247038871267,
+        "balanced_accuracy": 0.2813258855906134
+      }
+    },
+    {
+      "alias": "Team M",
+      "scoreable": true,
+      "workbook_sha256": "3c118f2c32c543561b71b1d7b6fc5881137cb15fb1da8e40f1eaf23830af48c8",
+      "validation_report_sha256": "764f46a92f0cd5117a4f18c0ae9da6895881845fb8273a5645aff9572c0332c5",
+      "official_report_sha256": "2e0174755122ed0f198c85c1f92491e0ccaba7b587c886e8ed4f24ea4e237ed5",
+      "organizer_validation": {
+        "mean_auc": 0.9820552643258793,
+        "balanced_accuracy": 0.8267653290346946
+      },
+      "organizer_official": {
+        "mean_auc": 0.7486922348657161,
+        "balanced_accuracy": 0.275918641938823
+      }
+    },
+    {
+      "alias": "Team N",
+      "scoreable": true,
+      "workbook_sha256": "1241ee269def033e1b0f056f30017c63c1e250a515b87b895d32f8c844fa8977",
+      "validation_report_sha256": "e4304d57e4875fd7c507ebe2384dee0725f273652dc62261aaefa881451a0a5b",
+      "official_report_sha256": "e4b8ecae01e723c4323b161f547f0257c2cf34d016ec27b4191465fb270a3ef4",
+      "organizer_validation": {
+        "mean_auc": 0.9914622167571301,
+        "balanced_accuracy": 0.7849987768132183
+      },
+      "organizer_official": {
+        "mean_auc": 0.8570334381684503,
+        "balanced_accuracy": 0.35732837222516356
+      }
+    },
+    {
+      "alias": "Team O",
+      "scoreable": true,
+      "workbook_sha256": "08d9c531c435fd52496ccac8b33ea92f2d8fc4d610ff3b7701b1aadf43e0443a",
+      "validation_report_sha256": "47a8d29cbc90b1435e5edf1ab65c735d0dcb82db3cb79517271c99ffd78802ea",
+      "official_report_sha256": "fdf081475b168bdb91bd2033c753f81b3060ebdc817e66d14c8fa3a7085789c8",
+      "organizer_validation": {
+        "mean_auc": 0.9843775651271385,
+        "balanced_accuracy": 0.7796339999945742
+      },
+      "organizer_official": {
+        "mean_auc": 0.6585702640981819,
+        "balanced_accuracy": 0.3509284826741309
+      }
+    },
+    {
+      "alias": "Team P",
+      "scoreable": true,
+      "workbook_sha256": "751e0bc0c6ec0c09615ab832411d01ff5c17d40ef90798e6d460a34e3ad3119a",
+      "validation_report_sha256": "0cb17a1cccf8f7dd0385cf5660dac01609f77210ab55362b717ed4a4e45b85a6",
+      "official_report_sha256": "a7e591349534a8dbd9fed22a964d8de8719a3a0443fef167452391f6810bd6bf",
+      "organizer_validation": {
+        "mean_auc": 0.9564150312945271,
+        "balanced_accuracy": 0.8042204104074132
+      },
+      "organizer_official": {
+        "mean_auc": 0.819737973091005,
+        "balanced_accuracy": 0.1918587700339743
+      }
+    },
+    {
+      "alias": "Team Q",
+      "scoreable": true,
+      "workbook_sha256": "94f16c3a00e8fabe697f4010bb42ffca2ca949b31db12ee81d32e62ef21d878a",
+      "validation_report_sha256": "d35fc4783155c9c0719d329a212e0421d163ed2ef92ca1c7640e6a8d88d0268b",
+      "official_report_sha256": "2d51a4f41073b45b677dd571a9c8888703050a9a324dd1de2b32d8cd9302af70",
+      "organizer_validation": {
+        "mean_auc": 0.9832532775944545,
+        "balanced_accuracy": 0.7771455287482277
+      },
+      "organizer_official": {
+        "mean_auc": 0.6821873833757486,
+        "balanced_accuracy": 0.22981214313783432
+      }
+    },
+    {
+      "alias": "Team R",
+      "scoreable": true,
+      "workbook_sha256": "270f622434c88fb0de6dfc2e238482de4b61be96799bc7dc47eeea05de3f37b2",
+      "validation_report_sha256": "0eca9ee97859a61cdf23b09a8d2bf646c5a26112a1d19a17d204d8895474b223",
+      "official_report_sha256": "b5f9a5a6f48c782e4c75497829a44618b877fd18b9ecdf30ef03542913b0af9f",
+      "organizer_validation": {
+        "mean_auc": 0.9744309880015118,
+        "balanced_accuracy": 0.7642229016199672
+      },
+      "organizer_official": {
+        "mean_auc": 0.7113022850770593,
+        "balanced_accuracy": 0.15410793724490376
+      }
+    },
+    {
+      "alias": "Team S",
+      "scoreable": true,
+      "workbook_sha256": "7580bb01dfa3253faabc4e58cf74090246406066a9b06b0266519271486439ff",
+      "validation_report_sha256": "1692d99a0fb67e59b7a7c163117d5fed54f321028f06d60de17a6fd6ac046ccf",
+      "official_report_sha256": "b4520512857f5e541586d5dc88278ea577af69e4809c3e34a7e8c91eea65074b",
+      "organizer_validation": {
+        "mean_auc": 0.9459472806640654,
+        "balanced_accuracy": 0.7426819977621143
+      },
+      "organizer_official": {
+        "mean_auc": 0.6724393870220624,
+        "balanced_accuracy": 0.26740357416454485
+      }
+    },
+    {
+      "alias": "Team T",
+      "scoreable": true,
+      "workbook_sha256": "02d69e3e239c322f1c4ba62aad148aa94a9ece91d5613bbfc57331cea601bb0f",
+      "validation_report_sha256": "75a6f1637a865ee5468723b5419eef3ba09e07fd9c4a942f776df5d7f0a600e3",
+      "official_report_sha256": "858c65095307e2b00d7975341ff3ab9b635ffa31ecb1853b7d4657ef94181856",
+      "organizer_validation": {
+        "mean_auc": 0.9645999701372743,
+        "balanced_accuracy": 0.6095487665680603
+      },
+      "organizer_official": {
+        "mean_auc": 0.6011660363104763,
+        "balanced_accuracy": 0.22317735025938262
+      }
+    },
+    {
+      "alias": "Team U",
+      "scoreable": true,
+      "workbook_sha256": "80db3355755e405e1d25995a0903dfaabd2bb75161946335f2702500cde3dc06",
+      "validation_report_sha256": "ac3d82f6e666832a8971ac94c2d52c7d76120d958785ad24288128357e31d4bd",
+      "official_report_sha256": "ad46f40f12b01e04f3b71bb4fac31964dbc2bb615e458802131c411de28e8fa0",
+      "organizer_validation": {
+        "mean_auc": 0.6136582390480734,
+        "balanced_accuracy": 0.13786057305119603
+      },
+      "organizer_official": {
+        "mean_auc": 0.5632873632725712,
+        "balanced_accuracy": 0.10833437780176751
+      }
+    },
+    {
+      "alias": "Team V",
+      "scoreable": true,
+      "workbook_sha256": "6450911efa86402f4ac7d756db2fc0c60581e64dda1cf8f7d93955a7875091ed",
+      "validation_report_sha256": "c92af3701cd9d7b4fca04e8eb12328acd65593a2b5bb6d2a245ec31dec4ff29d",
+      "official_report_sha256": "8a14eb0c45523b207952905cbb0a725f174745a1c65e555e5f41eb6489506b3d",
+      "organizer_validation": {
+        "mean_auc": 0.6468276503393687,
+        "balanced_accuracy": 0.1002
+      },
+      "organizer_official": {
+        "mean_auc": 0.5118418586455972,
+        "balanced_accuracy": 0.11947084984879927
+      }
+    },
+    {
+      "alias": "Team W",
+      "scoreable": true,
+      "workbook_sha256": "fb72fd26f314d6eb7f402da94d84dc8a07ed1d19eec439f856636d34668add42",
+      "validation_report_sha256": "0031ea59c1c9b3faa0baaa14896496ae6fd8861e69d34bc5f4fcc1cfb9c52db7",
+      "official_report_sha256": "d4a9f94d59bb3200f147cc4331055978a51da6e1144245318ceb36c76d3badb4",
+      "organizer_validation": {
+        "mean_auc": 0.5083612060652671,
+        "balanced_accuracy": 0.10436124060965397
+      },
+      "organizer_official": {
+        "mean_auc": 0.49745795219368744,
+        "balanced_accuracy": 0.076694999320071
+      }
+    },
+    {
+      "alias": "Team X",
+      "scoreable": true,
+      "workbook_sha256": "13ea83b53483dabc0c80caf9bbbe495abc295931e3e383231124c7c54ef1378c",
+      "validation_report_sha256": "b4e602ea4092c06d6f5678e0551fcb62374ae52d54c654fe5757dec83a92696c",
+      "official_report_sha256": "3a934656d4f762c6a96dfc2e059edf811a53bd57168274bdd56535534b28b57e",
+      "organizer_validation": {
+        "mean_auc": 0.4807286201755459,
+        "balanced_accuracy": 0.1
+      },
+      "organizer_official": {
+        "mean_auc": 0.6166294524347171,
+        "balanced_accuracy": 0.2826887991226136
+      }
+    },
+    {
+      "alias": "Team Y",
+      "scoreable": true,
+      "workbook_sha256": "043d70cb80b18f87c04f575055d909e46eee517ef3fb5ebec96425409235b23e",
+      "validation_report_sha256": "703b4492c478d115d93e07709aca2b485cd77d461c91cbd4a2ddbd1215a24282",
+      "official_report_sha256": "5566caa47ed7944e4619b074f17fee9c1ad29cfc41604dfdbdb8176f526d0275",
+      "organizer_validation": {
+        "mean_auc": 0.4661744814025074,
+        "balanced_accuracy": 0.10274614672107958
+      },
+      "organizer_official": {
+        "mean_auc": 0.5212472151663425,
+        "balanced_accuracy": 0.13545617275971072
+      }
+    },
+    {
+      "alias": "Team Z",
+      "scoreable": false,
+      "workbook_sha256": "e1ccb0ac9e0931c6532b25f530f9a8ee90153e94b519e42136b22de26479f8e6",
+      "reason": "Incomplete or invalid validation workbook"
+    },
+    {
+      "alias": "Team AA",
+      "scoreable": false,
+      "workbook_sha256": "087530c0d584ef814b5d5baf9559e5a138c61867a031cd27da38a668903058b8",
+      "reason": "Incomplete or invalid validation workbook"
+    }
+  ]
+}

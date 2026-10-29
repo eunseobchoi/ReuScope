@@ -1,0 +1,3285 @@
+{
+ "@context": {
+  "@language": "en",
+  "@vocab": "https://schema.org/",
+  "citeAs": "cr:citeAs",
+  "column": "cr:column",
+  "conformsTo": "dct:conformsTo",
+  "cr": "http://mlcommons.org/croissant/",
+  "rai": "http://mlcommons.org/croissant/RAI/",
+  "prov": "http://www.w3.org/ns/prov#",
+  "data": {
+   "@id": "cr:data",
+   "@type": "@json"
+  },
+  "dataType": {
+   "@id": "cr:dataType",
+   "@type": "@vocab"
+  },
+  "dct": "http://purl.org/dc/terms/",
+  "examples": {
+   "@id": "cr:examples",
+   "@type": "@json"
+  },
+  "extract": "cr:extract",
+  "field": "cr:field",
+  "fileProperty": "cr:fileProperty",
+  "fileObject": "cr:fileObject",
+  "fileSet": "cr:fileSet",
+  "format": "cr:format",
+  "includes": "cr:includes",
+  "isLiveDataset": "cr:isLiveDataset",
+  "jsonPath": "cr:jsonPath",
+  "key": "cr:key",
+  "md5": "cr:md5",
+  "parentField": "cr:parentField",
+  "path": "cr:path",
+  "recordSet": "cr:recordSet",
+  "references": "cr:references",
+  "regex": "cr:regex",
+  "repeated": "cr:repeated",
+  "replace": "cr:replace",
+  "samplingRate": "cr:samplingRate",
+  "equivalentProperty": "cr:equivalentProperty",
+  "sc": "https://schema.org/",
+  "separator": "cr:separator",
+  "source": "cr:source",
+  "subField": "cr:subField",
+  "transform": "cr:transform"
+ },
+ "@type": "sc:Dataset",
+ "conformsTo": [
+  "http://mlcommons.org/croissant/1.1",
+  "http://mlcommons.org/croissant/RAI/1.0"
+ ],
+ "name": "ReuScope",
+ "description": "Derived records for 'ReuScope: Auditing Data Reuse and Evaluation Sensitivity in Capsule Vision 2024' (NeurIPS 2026, Evaluations and Datasets Track): public-file metadata of the Capsule Vision 2024 (CV2024) release, byte-identity, video-prefix, hash and pixel-similarity measurements, ordered training and evaluation lists, seed-level metric records and saved model probabilities. No images or model weights are included.",
+ "url": "https://github.com/eunseobchoi/ReuScope",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "version": "1.0.0",
+ "datePublished": "2026-10-29",
+ "citeAs": "@inproceedings{choi2026reuscope, title={ReuScope: Auditing Data Reuse and Evaluation Sensitivity in Capsule Vision 2024}, author={Choi, Eunseob and Kim, Kyeonghun and Lee, Hyuk-Jae and Kim, Nam-Joon}, booktitle={Advances in Neural Information Processing Systems}, year={2026}, note={Evaluations and Datasets Track}}",
+ "creator": [
+  {
+   "@type": "sc:Person",
+   "name": "Eunseob Choi",
+   "affiliation": {
+    "@type": "sc:Organization",
+    "name": "Gwangju Institute of Science and Technology"
+   }
+  },
+  {
+   "@type": "sc:Person",
+   "name": "Kyeonghun Kim",
+   "affiliation": {
+    "@type": "sc:Organization",
+    "name": "OUTTA"
+   }
+  },
+  {
+   "@type": "sc:Person",
+   "name": "Hyuk-Jae Lee",
+   "affiliation": {
+    "@type": "sc:Organization",
+    "name": "Seoul National University"
+   }
+  },
+  {
+   "@type": "sc:Person",
+   "name": "Nam-Joon Kim",
+   "affiliation": {
+    "@type": "sc:Organization",
+    "name": "Seoul National University"
+   }
+  }
+ ],
+ "keywords": [
+  "benchmark auditing",
+  "capsule endoscopy",
+  "data reuse",
+  "train-validation overlap",
+  "evaluation sensitivity",
+  "CV2024",
+  "Kvasir-Capsule"
+ ],
+ "prov:wasDerivedFrom": [
+  {
+   "@type": "sc:Dataset",
+   "name": "Training and Validation Dataset of Capsule Vision 2024 Challenge, v3",
+   "url": "https://doi.org/10.6084/m9.figshare.26403469.v3"
+  },
+  {
+   "@type": "sc:Dataset",
+   "name": "Testing Dataset of Capsule Vision 2024 Challenge, v4",
+   "url": "https://doi.org/10.6084/m9.figshare.27200664.v4"
+  },
+  {
+   "@type": "sc:Dataset",
+   "name": "Kvasir-Capsule",
+   "url": "https://doi.org/10.17605/OSF.IO/DV2AG"
+  }
+ ],
+ "prov:wasGeneratedBy": [
+  {
+   "@type": "sc:SoftwareSourceCode",
+   "name": "ReuScope code (MIT)",
+   "url": "https://github.com/eunseobchoi/ReuScope"
+  }
+ ],
+ "rai:dataCollection": "Derived from the public CV2024 training/validation (v3) and official-test (v4) releases and from Kvasir-Capsule. No new images were collected and no human annotation was performed.",
+ "rai:dataCollectionType": "Secondary use of public datasets: derived metadata, measurements, metric records and model outputs.",
+ "rai:dataAnnotationProtocol": "Labels and sources are those released with CV2024; nothing is re-annotated. Similarity fields are computed automatically: SHA-256 byte identity, 64-bit pHash and dHash, 96x96 grayscale NCC and SSIM.",
+ "rai:dataPreprocessingProtocol": "Rows keep workbook order and repeated occurrences. The hash screen flags a row when its independent minimum pHash and dHash distances to the Kvasir-Capsule reference are both at most 6. Training and evaluation lists are released in the exact order read by the reported runs; predictions are epoch-ten softmax probabilities.",
+ "rai:dataReleaseMaintenancePlan": "Maintained in the GitHub repository by the authors; replay.py and recompute.py check the released files against the reported values. Corrections are announced in the repository.",
+ "rai:personalSensitiveInformation": "The underlying CV2024 and Kvasir-Capsule frames are de-identified capsule-endoscopy images and should be treated as sensitive health data. This release adds no patient identifiers; filenames expose only the file- and video-level grouping already present in the source releases.",
+ "rai:dataSocialImpact": "Supports interpretation of benchmark scores by separating data reuse from evaluation sensitivity. The derived views are diagnostics, not a replacement leaderboard, and release anomalies should not be read as misconduct.",
+ "rai:dataBiases": "KVASIR contributes 71.8% of public validation rows; SEE-AI dominates the other sources, KID and AIIMS are small, and AIIMS covers only Ulcer and Worms. Report per-source results alongside pooled results.",
+ "rai:dataUseCases": "Reproducing and extending the paper's analyses; evaluating fixed models on the original and diagnostic validation views. Not a patient-held-out, clinical or official-test benchmark.",
+ "rai:hasSyntheticData": false,
+ "rai:dataLimitations": "Patient and examination identifiers are unavailable, so patient-level overlap cannot be assessed. Hash and pixel screens are not calibrated duplicate detectors. Local-removal lists were designed with access to outcomes.",
+ "rai:dataReleaseTimeline": "Released with the NeurIPS 2026 camera-ready version (October 2026).",
+ "rai:dataReleaseAccess": "Open access without registration. Images are not redistributed; obtain them from the CV2024 and Kvasir-Capsule providers under their terms, including the stated research-use conditions.",
+ "rai:dataReleaseAuthority": "Eunseob Choi, Kyeonghun Kim, Hyuk-Jae Lee and Nam-Joon Kim.",
+ "rai:dataIdentifier": "https://github.com/eunseobchoi/ReuScope",
+ "distribution": [
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-SCHEMA.md",
+   "name": "data/predictions/SCHEMA.md",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/SCHEMA.md",
+   "encodingFormat": "text/markdown",
+   "contentSize": "3668 B",
+   "sha256": "714ecce69d5e5e5ac62020991350ebb8daf0491f5e70cf3d4ddf0502b00fb3a3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed0_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed0_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed0_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178884 B",
+   "sha256": "9345bec7319a823cd6d7c51df4ddb323d706093f14815df63742e1158504b918"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed0_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628740 B",
+   "sha256": "c2b99ef8ad3351b782af3c7c5bd2796d2708e0430ac31caf7b5d4a312732597c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed1_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed1_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed1_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178899 B",
+   "sha256": "6a7ee17e7c2087874d6aef0b673a75bfa7d4cb9270798549891fb82e6b930026"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed1_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628887 B",
+   "sha256": "0b18727056bf3b9a6f093de5ddf1d0045d5b99a986a03b2aceb221ff94febe0f"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed2_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed2_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed2_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178931 B",
+   "sha256": "b28e52c4f4d9d05195f922075c7e6d7fc2d3959ce3bea53dab7b84b0e9d71e66"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed2_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628709 B",
+   "sha256": "0a7e28a90a1ebc8000649c2cff726e7b95433d5d85d6f78ed202b0fde3b654b0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed3_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed3_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed3_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179048 B",
+   "sha256": "903533f268375544dbdd5dd621c89c7352549f513473e2ce11b482434481dac6"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed3_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628910 B",
+   "sha256": "bf34bffca8fe84c306173ea02817c9476cb0f338704b80201ec9e9f1b73a8cd5"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed4_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed4_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed4_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178943 B",
+   "sha256": "b287116821a051098b51fc95790a7e23b3001b567965dcf87fb75cbed488a7b0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed4_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628778 B",
+   "sha256": "7e586bbf3da594073a4eff1f959bb0a75ed2af0349b5d788c438e68009ef18aa"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed5_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed5_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed5_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178981 B",
+   "sha256": "3820b6f60d3a86390ba987dde48e4f7ab28909408035fcd9b860d5a356322ada"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed5_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628769 B",
+   "sha256": "86515fa18e710ee3f4e77176c19dd09a43100fe2c70d3eca832e1dc5d0e8848c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed6_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed6_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed6_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178949 B",
+   "sha256": "79139f82d497a5bb3a7f2711f839ab78824c1e72a3cdd5a44fa4fc689bf8aef4"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed6_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628909 B",
+   "sha256": "eedd2a39823fdee1ad26dacf6d9170463489f9340ae4173a2b47ecc6259924c7"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed7_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed7_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed7_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178914 B",
+   "sha256": "b02a5b39d090cf864a565d5c7baa9b511dec676fefe34af251ccbee714ee3a8d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed7_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628758 B",
+   "sha256": "0052f1e4eda7697f5d116397dc8e752ccd9de3dc6b5cdb867335cb98d66acd2c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed8_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed8_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed8_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178925 B",
+   "sha256": "aecfbdcb323156f06e75b62fda3756ff1101ab914cca52bb34fa9897984ff203"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed8_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628546 B",
+   "sha256": "5620fb0207aa2ed0095bcf92fabfb38576681c72986aa23413b9058d71c749c9"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed9_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed9_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed9_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178980 B",
+   "sha256": "82ef0f0df9908b0bc7e97d1b51d60185f8668d212fd3765dfdfd61b8ceaf16db"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Full-seed9_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Full/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Full/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628893 B",
+   "sha256": "e4c759111e67f1592cc29ceea3b7f2308d035729272defc24f6585d3a603855f"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed0_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed0_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed0_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177232 B",
+   "sha256": "1eade0d966a363a772db9b5d62815b5dca10e3e2a910909a3436f8eb6823516d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed0_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626099 B",
+   "sha256": "1a212978f13d61e37f853c4ca529d47c03920d0d1bad8d3e510657b388077209"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed1_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed1_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed1_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177276 B",
+   "sha256": "35f806a1a71e050d832abdc350ac5d9c21e382781cb759b3dfce63f2312db2bd"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed1_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "625804 B",
+   "sha256": "e3433d01274d86733979054970b469b4d49b91da54e141a240cee57ffc1c2224"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed2_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed2_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed2_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177243 B",
+   "sha256": "5f88f022fd01840ba64d0ba855cb2384f14b4555173274ed6bf27f274f792348"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed2_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "625933 B",
+   "sha256": "dda941b5520e6534afba8d16a23b282c9de6dad4fdab930995a6e95e557cef54"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed3_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed3_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed3_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177231 B",
+   "sha256": "bf4f916ba84a06485f982d782f07efa0c38b869b991d131c4f6e9d23ba91c8ea"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed3_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626076 B",
+   "sha256": "7d02b1e895f62d796e848df811b7583be744434bfb2bf1cd7a2e1c9eee24ca3e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed4_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed4_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed4_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177254 B",
+   "sha256": "d70aec79a3acbddf9aa3664d911fd23b1710428cc4e36c2b923777bc2923f00d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed4_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626130 B",
+   "sha256": "12120a6a666742f2f15386e9c4af72dc58624dcf3381381ee00c17da6057ee71"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed5_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed5_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed5_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177196 B",
+   "sha256": "b4ec82aca534efe0647b78a2798cc831162b5b7d8bd643b1255ced8bdd81b14b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed5_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "625956 B",
+   "sha256": "b7d8cd8510a0aa458ae19ad15779feb6fef3d020cce60890e9c7c589d361bea8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed6_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed6_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed6_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177403 B",
+   "sha256": "118106f53712f21707a023d11269e88505d7db32c22e318915fea7b2b0029185"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed6_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626382 B",
+   "sha256": "c2106d9c801b7595e9fdf7333a2aa1f9125026a258f5092f3f0f88fbc2844f04"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed7_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed7_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed7_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177293 B",
+   "sha256": "f5dfe91bd6d853174f5dc2225d16e5481a9b3dc7252c63764a215dde751f0d03"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed7_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "625997 B",
+   "sha256": "2baeae4211e966d103c5259d0186efb2d6588466e9ad20b3fc166339ec0fdc4d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed8_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed8_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed8_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177282 B",
+   "sha256": "70eadd5d1a5a589ef8a9973464154863c5ca98126ea9ef757e2e633822398e67"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed8_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "625609 B",
+   "sha256": "28218b5fd4dc272024b539865f98b8cefd12bd5548e51330a0190ee930e3a583"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed9_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed9_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed9_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177314 B",
+   "sha256": "1aaa2c2af081ae35af22eb42f15c5d944317a61f41b5f96d4dbb3046d992afe8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Random-seed9_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Random/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Random/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626157 B",
+   "sha256": "8f746dff955fb437d0ff7d8ce1ee22df953dc79678db6e9a70bb257c9031d530"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed0_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed0_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed0_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177715 B",
+   "sha256": "638377d4504da741fd53a875f6ae5db29ee1810fd790de6c708cd3d979090594"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed0_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "633760 B",
+   "sha256": "0e6348066989beb8b6d9fa1bf40cc738bc908d75f82d5af487a189caf167017d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed1_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed1_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed1_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177619 B",
+   "sha256": "555be7b39198a070f19183f932585f7aedd987489f3e384b5eb2c5b3ac85884e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed1_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "633303 B",
+   "sha256": "f243078a2c01f140639872c8f4ebe13e03ab5f139160f41f69f516066bd330c6"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed2_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed2_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed2_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177733 B",
+   "sha256": "e8ecc7c11f221a996245f5ffb72f2e9b0b20dcba67a05cf276617c79af66100f"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed2_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634373 B",
+   "sha256": "dfbba05b1594fea03f0bcfbf30d52407ba28788f9c91613e15ab12cf0ddf09f1"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed3_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed3_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed3_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177867 B",
+   "sha256": "76d2f864c005c5d4f19d32fb3d86ff4779a323e6041871a7a964c08e01664133"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed3_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "633810 B",
+   "sha256": "591f9238335235aa201e084afcf19da2078af5da2c29b196a83195013fa6826b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed4_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed4_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed4_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177719 B",
+   "sha256": "ed387adeeca3c3bce03274c199ad7cf245de817c605120c84808e8d5c7251cc2"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed4_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634406 B",
+   "sha256": "f79f1315688ec75dedfcb7c83bcbd5e5dd57525c5345be342fd3c4ea5bd60a8c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed5_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed5_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed5_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177751 B",
+   "sha256": "ba25dd8c7e878e994d23d840db69176913ffddaac96c308f53a6746918cf596d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed5_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634782 B",
+   "sha256": "3139c51c4708bc049e30dcbf8706becf3ffa9e5d8aac0237ef9ec647dd4b5914"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed6_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed6_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed6_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177860 B",
+   "sha256": "df98e81ec977fb5f92811c034a6364f30f2f8e70eba1a1b8e282c32bcae0d51e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed6_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634553 B",
+   "sha256": "b9abb88fb92d430a74de91a11c0f253e46ec083ba4358aedf04dfa57b25be7b9"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed7_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed7_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed7_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177740 B",
+   "sha256": "c88f545f66d4879b50b619a9773ff6fc7c0c06c1156ebc33899c47348f4f4ca5"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed7_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "633547 B",
+   "sha256": "b638e2447861c3525714530bcd6c4b07b43c9e50346cc87a9f60f93cfb923aa0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed8_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed8_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed8_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177730 B",
+   "sha256": "10189021d98fbeb2382f5315af6d69cf58b84bb44fb7530e2ab4f29bc75c21ff"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed8_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "633156 B",
+   "sha256": "8748aa125409a53733507e565283e8ea4147f435b769bb109584b48a4ee9d296"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed9_non_kvasir.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed9_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed9_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177776 B",
+   "sha256": "09d05bd81fc6dce80a323ca6576ba765de548916e0968c350b93f32c594ebb7e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-convnext_tiny-Source-only-seed9_public.npz",
+   "name": "data/predictions/cnn/convnext_tiny/Source-only/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/convnext_tiny/Source-only/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "633858 B",
+   "sha256": "57fdab2f427f95258f950e0da48f7d28de7c6626180e53e099389edd99b3c562"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed0_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed0_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed0_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179063 B",
+   "sha256": "273be2fc497206529f50debc85c5a01f012b5e3eec06d46ef052d60d6bd2c3a8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed0_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628940 B",
+   "sha256": "01796b8c6311d6ff8a9bcbabbb342ca5ddc7aba854e6db03249ca32235fa2f90"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed1_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed1_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed1_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179032 B",
+   "sha256": "c6aa7f96eb6dd0ab06d62ac56b09717d1ffdac1d923e34235ef1656f6adb2b21"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed1_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628956 B",
+   "sha256": "a5d778321c3dedb24aaf678b1a16edae252d28f43f6f32ccd173e6bc484e9fce"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed2_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed2_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed2_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179095 B",
+   "sha256": "35599cf5739476e6166b281b300bc1b9d383792d1ff23bef81ef2016c20602fc"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed2_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "629060 B",
+   "sha256": "bffd74343490d7339981e1ff4e9f2eca90b125899c696381741383683132e2d8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed3_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed3_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed3_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179132 B",
+   "sha256": "2274668cdd9f43a5f8b5024a57790d2fe9380f409dc708102393252abbe86be8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed3_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "629048 B",
+   "sha256": "267c9292448b5a285569e51a2a2a940c36fdf19125ef3b0a2cdd95ba690c53ef"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed4_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed4_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed4_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179081 B",
+   "sha256": "96664b023413b17b8980108d5e1b3dddd3eb3833b35d867ba0b5ade4854a86be"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed4_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628953 B",
+   "sha256": "edf934b6c07fee7e4f5d63fcbc8b558bb9b6f1b2497a0de83731f25fa72c4109"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed5_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed5_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed5_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179158 B",
+   "sha256": "39c1f4107361bf1b6d3bf7a38a04090e71e1348c4cafcde1b56d4fcadb870791"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed5_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "629365 B",
+   "sha256": "a1f8413c44c69bffaa43202a02a637b3de84930a502646b00f3bd28d46e2ad78"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed6_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed6_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed6_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179119 B",
+   "sha256": "a02bb6d1ad8da774bd4eb44ebc0ae693fcb85dc580f23acf7ce9849f83fac208"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed6_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "629010 B",
+   "sha256": "02116c87c13e7dceee9427e55cd1bad7a2304d336649ce684a5963e25a551d77"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed7_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed7_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed7_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179009 B",
+   "sha256": "da0979bf71c20f57f71a775d88778c45937e374eaf889a65f34c7b0af31ccff2"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed7_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "628842 B",
+   "sha256": "d9e648164626be79e2b61da5e49332967defd06a47f888b8a822c520d28c4244"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed8_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed8_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed8_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179189 B",
+   "sha256": "ffa32de975c5e2bc8f61ed7fa580e0306ea9f02cd5032e6a9eee206ad73e7135"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed8_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "629110 B",
+   "sha256": "bb8b74858b2807a96efd9934efbe53d2245b0a6c74b7de1739b131c78dffb28d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed9_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed9_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed9_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "179095 B",
+   "sha256": "0b5d2623109840ea65d884c24e2076dbafc99429abff400016ce82a8c16fb009"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Full-seed9_public.npz",
+   "name": "data/predictions/cnn/resnet50/Full/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Full/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "629238 B",
+   "sha256": "ff6b36e1ebf543c887120623a7299c89a9baa3646f4a638bdd64feb45669019d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed0_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed0_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed0_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177587 B",
+   "sha256": "683f21eb4abafc4534218b8415854a19f6476651f8f7f6e974866341d02da446"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed0_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626678 B",
+   "sha256": "c86ab477458e7aa7258be6f84c7f360c6956b53e4d576e3810370bfaffd83276"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed1_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed1_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed1_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177692 B",
+   "sha256": "fa07a37df738ad8eafefa1242b054ac172defd28f423d74b6e53827eac9f8348"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed1_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626815 B",
+   "sha256": "c680fc6d65918b29182398664d4fac39af53dc40869290382961930873d936f3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed2_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed2_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed2_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177679 B",
+   "sha256": "0843573f57e8c0c5e8541f70c7d0be93e6f8b4f28ac4527af58881e86daae20a"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed2_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626925 B",
+   "sha256": "c8883e1f0cd43f4b69514a580c84798bf6a97fabb5c87c08fd9bc4d52aafbec7"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed3_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed3_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed3_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177512 B",
+   "sha256": "aeddd434fad5bfa00c6f399f70b3d8230175a7348e847f7e8a8a3ea2bafd4083"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed3_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626498 B",
+   "sha256": "4752772d9853abb8461d24a1e3ef99807ccf024ad13709af0a91b3967bbd9911"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed4_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed4_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed4_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177700 B",
+   "sha256": "5f565e67ce09fae6bcf5aacb5fe23aca01596a2a121bcd261a191e74e88c57c7"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed4_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626518 B",
+   "sha256": "cda22bcdbfa97105583b8083674f416d67ee3ae3cd36fa6c9d0766d029b1c40e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed5_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed5_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed5_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177659 B",
+   "sha256": "f571fb5bb10adb72445eee7e57e133026d518a9301d6dc4c4b1b03fc20c1367d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed5_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626837 B",
+   "sha256": "f95823ece3ab7e375c3ee854f661446100c68e41aea05d0981c5d6e57d1d662c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed6_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed6_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed6_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177791 B",
+   "sha256": "65b11ebe62d065cfe9391aeda00c57d2824bb7a33748a49a57ce8dfb55b07b16"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed6_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626919 B",
+   "sha256": "5e37afcfcd4b2451f2058e5192572687d17135720640c825eb5c4aa978a8ba1a"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed7_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed7_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed7_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177598 B",
+   "sha256": "c2d0f9fab8e1697ecfd132a2d7a715f2efd0a6e5ec143e7b42c7e730e90c5cf7"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed7_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "626474 B",
+   "sha256": "35e1c7b7083acc8c46e0a5c709f6181187d1e334331afb80688b8fc41a99bfe0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed8_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed8_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed8_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177670 B",
+   "sha256": "04ab2aed9d06c9c9b7372f76425e1ab62156893c77240bdc0a3db9c592a4471f"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed8_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "627047 B",
+   "sha256": "799c69daddc4fa6cddab0c1c7b6abce247fc394e7269db9d57c4270484ffef2a"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed9_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed9_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed9_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "177619 B",
+   "sha256": "082394f9c85fd78e0114546fbed6f9af8df941e7f31ded132694735bcce85d67"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Random-seed9_public.npz",
+   "name": "data/predictions/cnn/resnet50/Random/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Random/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "627053 B",
+   "sha256": "19f5f8255e62b2d062a3115390f081ec6643f872ee96ef15f47d5fea1f55cbed"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed0_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed0_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed0_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178027 B",
+   "sha256": "7a8a80455429dbd75120fababf58543d0c024268088e7b7a8c77d59a69f4c59b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed0_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "635696 B",
+   "sha256": "d5143066954ce7ee2d91c6a487056ff9d4582b41c0bc714f19be830f683ee79e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed1_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed1_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed1_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178028 B",
+   "sha256": "678edf047890c0f02113b3e5f668ef06f5ab0a9e16b6dcd67b6d501552fa7908"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed1_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634355 B",
+   "sha256": "c61545895b2577aff3ecfe45d0c1da9f24f625020c4fd3d3ee525c120a7b87ac"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed2_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed2_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed2_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178118 B",
+   "sha256": "6c894e381844864ea5aff0bdc7882242a7149d0610c5a88a44b57eeb28d5b6fe"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed2_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634600 B",
+   "sha256": "7382358203b201c60218017e72e251f29e646ec109d46f2481b2f4b1b2691486"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed3_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed3_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed3_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178058 B",
+   "sha256": "6540b3c2b38207b6f6e93bbab1d736376a1816eba45495e1b007f0557115cd3e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed3_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634363 B",
+   "sha256": "7fba1303763a861cf1e73cbc348db1a28b2acaab45057b6bb56b426576e1491b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed4_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed4_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed4_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178087 B",
+   "sha256": "9dc400b8dfed07eeeddb1f9b959bbe9a29201b6e0479331294a7a6734de313a5"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed4_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634031 B",
+   "sha256": "9b78984d0a9d5615980f40d7dcb917ca5dec0936dc10487ef0aeccf3f9480f6d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed5_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed5_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed5_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178156 B",
+   "sha256": "b7cb6ea016c24036b80526c91687d6ed584e466da57199b8b0432be3c8788b51"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed5_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634196 B",
+   "sha256": "2593ba385bc394b97b0d057ef2efe0587f1b36634dcb071b5c4b43e4eb457fd6"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed6_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed6_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed6_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178083 B",
+   "sha256": "0f66b9884d1c98348f8b98fcab9b8363417ead2517ce487fed32096906d35a50"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed6_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634830 B",
+   "sha256": "4d383980c93b23991240fffc10b0fb4ce6940e926083fef25b7cb3c02ea3a4b8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed7_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed7_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed7_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178045 B",
+   "sha256": "241f837e0318c02b499117a1e1bda09ce2f811b7e20b1e86eb419b55c43ff345"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed7_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634532 B",
+   "sha256": "a26332ad89379f946c431f8028244bf7fae3860cbc023775a7e4afb592cef044"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed8_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed8_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed8_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178124 B",
+   "sha256": "3ce39c694c3df343cb48a86e995edb7c35863839334ca4b22747e3429a3425d0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed8_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "635425 B",
+   "sha256": "bf2d3e1a33139a181d4f47c5e5bb4c1725fa7da148de24280c59e0b9e3f8b579"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed9_non_kvasir.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed9_non_kvasir.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed9_non_kvasir.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "178118 B",
+   "sha256": "bf00a93c85f48f73d309f4870200e3e49d2a1e83c3776788b433ad780db30aba"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-cnn-resnet50-Source-only-seed9_public.npz",
+   "name": "data/predictions/cnn/resnet50/Source-only/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/cnn/resnet50/Source-only/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "634200 B",
+   "sha256": "9d24c3dab4d7ebfc94af8a2838cf1bc110f7b61720a38f6187b9f0bda533ad40"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-manifest.json",
+   "name": "data/predictions/manifest.json",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/manifest.json",
+   "encodingFormat": "application/json",
+   "contentSize": "54163 B",
+   "sha256": "27a3ff2d4402b482a7013ffe528bdd9af1b55285b8e168f94b736a65210deda0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713639 B",
+   "sha256": "06fe3d5c3a966a83361ce844c3d551bdc81386f52823532e649a27c04424c325"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712987 B",
+   "sha256": "fc1ff08d824f0f758219e5c8314e3d491c871f075c9b9e6b0d6f22c559e658a0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713161 B",
+   "sha256": "af42d7ca40e29fd0e892fbcd0273abdbffc2e456d6199e89e079eaec93141cc4"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712165 B",
+   "sha256": "0049a4029cee18c8b66a39cc49a0543ac148583396d765502e72eb29f477181f"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712206 B",
+   "sha256": "5ea30b2c787640f8ec5b17c6cb8a292870b5d7c5b73d838fc8203d97899b5483"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712356 B",
+   "sha256": "f1164bd362cc9575867d11389c81035dc1e15d0256d2faac5c9c296637c746f9"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713255 B",
+   "sha256": "6b23195613b04ade0bb66d26f2cc3c00ed9e95809c1d1b7a7238bb7e4e17f654"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713363 B",
+   "sha256": "7add4809998bef00b974ce07472d145c7fc77d7f5af51f8554b9f8c6733f4f4e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712796 B",
+   "sha256": "89a234afa9e4fd50fac04ffc65cdfd5289dc98ec994d573ca88f3580dda55ef0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-A-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/A/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/A/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713050 B",
+   "sha256": "ea0734838f673d06afdaa77b6207a3191be61789a1f29718a53021aa9122a35a"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713992 B",
+   "sha256": "2debae1a62cd9bd80605f379e414bda11b565f135bf5d1f20762217df19c79a6"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714341 B",
+   "sha256": "e444a7546934e151762a05518f443ed939c2f9756ae482a71f0f16573a63dc5e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714361 B",
+   "sha256": "37091ef76ff974845eb16bd9366d29ac9ff1337fd6e1c39a5e5bffe3cf313491"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714277 B",
+   "sha256": "b0f6e480b7d4301bff4a28bc44cad1b36eabd0089f478643782e06ee6802b7bd"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713503 B",
+   "sha256": "a32cd6ad0dbb89856a7f0753c3f769b8b9843e6fd7411a3c1857170af5fd32c8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713808 B",
+   "sha256": "69494d0aec725167bc53da6716ac92d6870d20b3dcfb4d642a79ef1b7281f6b6"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714457 B",
+   "sha256": "6cf55ee99aef6653f02dc05e67445a87e07db08bba2e825194a1c13cb8f4a949"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714909 B",
+   "sha256": "e925d9fb8275a1184fd5deb52ce2944402d85f38297d9d215889d4496b744160"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714323 B",
+   "sha256": "2bc5fc9bf4707929db2a3e042b48536bf6fe32d3cc74bf84e3ff8a5ddc04ee8e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-B-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/B/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/B/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714773 B",
+   "sha256": "96c1331b910845ee6dba5168553bea06e933396ba7f9ae26d6ec33068f9a61a9"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713427 B",
+   "sha256": "7d95da868f4e17918975cb0d9bec4710d08cddfa9daffb29c8b57e80b98a095b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713569 B",
+   "sha256": "c48c1271d094b699d097b90b5f18f37568d5711ee55e950f55a5129437c12c7e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714011 B",
+   "sha256": "d5909ba4d3531a8b7c5b7159d0a3245d13e666c15e3720e190fe3d8fce3ad4d0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713779 B",
+   "sha256": "6e83c5967aac5fe88d0a30423f6e825b4d5440583df3a41ebdd05a13cf355203"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712899 B",
+   "sha256": "6376f4024f0e37a9e2ebb7d7ae3652dd6ccc6a35552e6f48999e8152c3fd773a"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713565 B",
+   "sha256": "8dd43dfcb755833c50f2020c0c84456904d09c90e81ad7d50b37b774f49a8a94"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714407 B",
+   "sha256": "c8c593b07b2f5c44a2737a32cf59cc9667556d02cc301ab974293468f77e3977"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714038 B",
+   "sha256": "6426db093ceda36c7ba964b6241cafbb1a664ccf80ea04e86d1abd312a596102"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713591 B",
+   "sha256": "1ac5823257d8dff475720dcdb0f1823a176025661a18e5f7b627cf2d44f2a533"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-C-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/C/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/C/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713760 B",
+   "sha256": "b5f0c288d95f6fdb32e1bb4adb329b0cb5b91153e1f167f7fa43a8695ccf62e8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713264 B",
+   "sha256": "c16f6432fd14c1f36e57f7fae6055b77aea597f14fa9a63d17aa4a2066944919"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713333 B",
+   "sha256": "ffafe72721aec5e4e5cd03d949c404f6d145d25edd9f9903895ad77a125cd434"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714151 B",
+   "sha256": "cf8b790314da6479823aa07771a1359e91bef5b1daa4ebb269ac15535e6fbe19"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714418 B",
+   "sha256": "ab20ce16f79193ed0bbae0b9daf15b346864e926605815b0fd86e52681f83449"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713119 B",
+   "sha256": "5fea94855024b293ddb0aac3d13e7f8b6ed95900ad805887aa1c032faba075ec"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713467 B",
+   "sha256": "807988b93cb8000eb06b5e9bad93a7b4f1689b0b693faad1a818cc3a28aba811"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713683 B",
+   "sha256": "193d6c759bd01a46954f2f6178c28c3827d4d13a5f19d3f167312053e237eafa"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714060 B",
+   "sha256": "21aab9927f9b4e252a4e0e6d11ee7986a3478747bf7af641b7c1a5c0409e17ec"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713548 B",
+   "sha256": "79d7e6998a627497d684697e2d69fe616cf68ce3fef6fa3ff5bbee6e03f384f1"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Class-match-R-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Class-match-R/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Class-match-R/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713736 B",
+   "sha256": "38e9b1411876b70e49d1d9ba540c73453bf6aed6c547aa56250c47564b8d8f96"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713045 B",
+   "sha256": "51114582422f8b893eb3445bdbc9d31428df96bd5b659c6feb67cad3ba8e920d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712340 B",
+   "sha256": "293fb0c9a46dba5f61de0ade9dd05dd1954669d008adeb3efa9d7e3ff17f5c45"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713898 B",
+   "sha256": "14a45e49e4acc7a57a9f788d9ef756051b4371183e8f80fce4b0f8566026de8d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712980 B",
+   "sha256": "90e9f1cde0801b0413db07bf047ca67dbf2ab2f2c1fcd0c6e659469bb7457051"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712251 B",
+   "sha256": "2fce116cb2361e01fd207c3aa01bf0618c864de0fd7f37740884e050e7e2890a"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "712698 B",
+   "sha256": "918a3abcdc2901d1e5aaf946e5866a7d9a61718e1f9cf9ba9cf432563ce2be5e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714102 B",
+   "sha256": "21d28f0dd2b2996283a61a95e5ad998f2699c6316f6053487ee3131c015b22ea"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714013 B",
+   "sha256": "61a2e4686de325aefd422dd2f1094708e157a97d6251da6f1fba7d774e7928b3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713634 B",
+   "sha256": "80943d81b2f6d64ea7582aa219adc06ccc6124d401c0b464643763fa3f0286bc"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Comp-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Comp/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Comp/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713278 B",
+   "sha256": "ddb1ad57695f34e4a14e9e71c2d72ee0c6c1779b9ee6cd542b60ddb5d9da3927"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713719 B",
+   "sha256": "f8d38cb62f6ac821dbc2c9e5645320e90436d156f0ce5948368e1a0fbb6c30b0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714275 B",
+   "sha256": "e2aa9e8b7fc2b9b165a5fd31a5d159cdd8d6b80939e38fa77f35156fae805995"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714565 B",
+   "sha256": "7034dcfb9d7f600519726d6e67448439ef8d8545f50938cea999b9f8dbb76d07"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714236 B",
+   "sha256": "d8ed277dffdb65df42c0be0503092845f04fb060fde7bf511734e665fe062c43"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713128 B",
+   "sha256": "f48b35d42d69e9374d09d335c96161fdc3671c77f1ce9d9976d014e541d52612"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713612 B",
+   "sha256": "43dfd493162e87f5316fbbe40d516c9b837861b2919dd6f23254f43b59792716"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714088 B",
+   "sha256": "7eb8025de19686b9b4604a259459b0970d4310a822f3c28812be72fc8399480c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714976 B",
+   "sha256": "2ffd9b165600bec171c890308b289b32bb1590379cd245ee296d99a1d494f3e3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714124 B",
+   "sha256": "3a7d47040514b8320ccaf86b9dea39ee69a4f947c24c8abc0aa352224530ac9f"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-dup-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-dup/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-dup/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714513 B",
+   "sha256": "d3f2e727e6e2b04fecd1ff2901552a207e321b245181d5b9a1a289dded08cb76"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713723 B",
+   "sha256": "20b4d91c60936f6d8b312a6a0ce70abda1bda2b876fc70151ce8b3cc9160928d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714537 B",
+   "sha256": "95d288cd357352ccb2c97d05f9dcd5bd47bc007f654b0e023f339b888f517154"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714536 B",
+   "sha256": "9fe4a52f207aa4f3f10670c664675c06d14b5fe64ec8f96faf6d20833395df31"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714237 B",
+   "sha256": "3f39e0e87b6be7c29e57912d9caed4f29daba82df5c97dd27cadd14ded8e7959"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713784 B",
+   "sha256": "4ba610c891da19bd78ba435e181152c0c4c342e9bf7c6fd834dd85d68c7d6f27"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "713991 B",
+   "sha256": "1e15d8571b4ee8f8aa20fe0d310d85ac243a6930b8c8061f7a3a76e7e60fabf3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714269 B",
+   "sha256": "63b6d2db25bc73dda027ebe3ce3ea1dcffc3166fe892ad0307260a14e5ae6645"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "715057 B",
+   "sha256": "15732b79f09ce2e856d22b5c236ea2f4b650744c2c96f6987d5cc628fcb7a550"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714110 B",
+   "sha256": "0910fa99db65ab177d9a6c3c024af785625487e2e279e1b5cd78ceea4be72013"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-D-uniq-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/D-uniq/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/D-uniq/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "714549 B",
+   "sha256": "e492edf116fe3dbe46ec0aa21ea3a2e493f1e2f87e24e6541c99f03bc45deaf3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "706447 B",
+   "sha256": "6cf98b3f6f977441204da3f6e1c5c1a8e140441901d036c960c3066c5ffbf3e2"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "706845 B",
+   "sha256": "d0d5948e4841dfa7f3d80c5844db74dc5bdb3d1e1e29142502d075c3b04ade12"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "705989 B",
+   "sha256": "c81996f4f77df3a8b5d960351ae0b115f9f01112226cb9a0e1f00cba48905bac"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "706327 B",
+   "sha256": "06271039b1b0c6441300ba7c45abf93665fcb6dc6769344cd989a329da0ba9d9"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "706464 B",
+   "sha256": "2a6b0f5824ad033f0b778303651fd128ed831af53c00b44c587aa4258f970f66"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "707172 B",
+   "sha256": "ff2cdc0b82a045e9b7e9494e6eb7f0a5cb2c4bde4d3a5c453fd8ca8a09c0c7d4"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "706759 B",
+   "sha256": "0c3463bd1dc4f2c12ae055ca8b5f6eb3734456117c665c04ed7a6049d1d2acbc"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "707681 B",
+   "sha256": "cbcd3fc003b9cddd5b458cb91695cc013b2b692a54a81a06eec9c7ccac1619c0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "707120 B",
+   "sha256": "daba2dc23df5ca521c039926799da517e3490f69fbbb528542cb68aae5165a78"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Full-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Full/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Full/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "706488 B",
+   "sha256": "c5a39c35b6ca2062fbd04f26328e94ee914db5a0778bc2c2628477dd175d2b72"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "709218 B",
+   "sha256": "83edd3d661007395bd3c38172252df61a5c66a2bbcb0373219bb5aac3b5dc186"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "709969 B",
+   "sha256": "5f75a3a673d6923e35a03dd2b7ba7f3a216cb7273aa52edcfdd6ef2b7928f86e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "710077 B",
+   "sha256": "fc4d58edbc5c07bd2a2aebded5ca4784931073bbdbb1306f45974fdcec858e2c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "710004 B",
+   "sha256": "4749659ccd9c3793573b982ab76fbb72e32cedcbb632e0142ac2e28d8cdb94f0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "708343 B",
+   "sha256": "d894bf2286704db30a056ae57a5aefe6fd4564ea427987a1713c67dc3289157a"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "709432 B",
+   "sha256": "ac42aa220b79b7bf99220db35c7f11e79f58842d35128b4687b664744aed14e5"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "709276 B",
+   "sha256": "f7faac1758bc572d6306305ccf398077ed54401ab202d1c9112b3f7d7a6cfd20"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "709461 B",
+   "sha256": "d75d8b9080e9bb0021807c490edaaae0c4057ded84cbd604c06c60c6fe0ee2f4"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "710564 B",
+   "sha256": "e5e2ab96c7e46edbf96cf8fccaab8f5c3fa038c26a8b69a1adbaf88a7f723c2b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Random-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Random/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Random/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "709011 B",
+   "sha256": "c98047ac1c052131989306a643ec458af79b9209d14c3eebd4956fa08f6f9b95"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716758 B",
+   "sha256": "c7d65f8a71fa544baecb4a190983a9ea493cfd99fbd153d77e090744014403da"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717419 B",
+   "sha256": "91af4698b6dcb455c7299e4a42e79b6eff72d3dcad8260f6d96098683425efd9"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717597 B",
+   "sha256": "52df3026f99d46b0979ddb6e1fdeb9c934d2782e84caab0184d5280be3eb1e8c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "715688 B",
+   "sha256": "c293e4346e5dac9b15ee4356f617bd8837207640da64f485e3a1789ce78de863"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716943 B",
+   "sha256": "84b71138d4fa93bbb2bd572c347d9d2766c0660dc8f4680bb0c1691424534444"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "715767 B",
+   "sha256": "463301e5d3017f7594e2d93a64d734b6e6b0aafa2d735bb8fbfb1b6bf9b9c7ce"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717853 B",
+   "sha256": "db90808a1b8046d6add8ea0b5802317799f541afaef36a3574d1e146c9b54a6d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717081 B",
+   "sha256": "639a3bd9141ebd0ded27b7a629beb550f9437b5140f2238fd382badb6f822fd1"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716998 B",
+   "sha256": "2b4bb305548ed8cef34bcfd6add7c1f64b772496d4fe719f60d447dd20d636ff"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Removal-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Removal/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Removal/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717434 B",
+   "sha256": "d158883878d10d1f893c97d148d347c51a45d518ea9e644293c4aa718f04186c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed0_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed0_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed0_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "715659 B",
+   "sha256": "fa6089d8b1feea0b392918f30a3ed65454bf639851d68d013c2c6e0c204d8c4e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed1_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed1_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed1_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717255 B",
+   "sha256": "e5bf7466068f2a1fbec57ccbc565ddf86ab131d825cf1d09106ef359361a8a9e"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed2_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed2_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed2_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716877 B",
+   "sha256": "842326f46015f194310386e4eecbaa635672f384aafc3093f245b2aa9c0d343c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed3_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed3_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed3_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717182 B",
+   "sha256": "e06baba561f586c1c7090a48e9ca347cc546dc99a3450c3f8d84de00185bfd07"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed4_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed4_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed4_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716591 B",
+   "sha256": "ccde4f8b96c4ca2d1036b80c323853e227d240a9679094a73ac49bea5e57a9b9"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed5_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed5_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed5_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716115 B",
+   "sha256": "c80fddeca3f6ef50f3cebef77a5cb2d47d88c84d51bb192cdabb33721e337f70"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed6_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed6_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed6_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716666 B",
+   "sha256": "17902a76ecdbb30602fb89797b04815ea05cf952159971fb8da0c6a052c45794"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed7_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed7_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed7_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "716798 B",
+   "sha256": "fa6e163ddb1dfb566500118835704ca5b622f4aec38fa1b8c7f85fbc403cb809"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed8_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed8_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed8_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717120 B",
+   "sha256": "b5f976472006e2184919563d7f267a51a08bfc0fcfcd9f61046d0aeab0c61217"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-predictions-primary-dinov2_vitl14-Source-only-seed9_public.npz",
+   "name": "data/predictions/primary/dinov2_vitl14/Source-only/seed9_public.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/predictions/primary/dinov2_vitl14/Source-only/seed9_public.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "717234 B",
+   "sha256": "0a0690bb4d982cc6c08bb13462c9463faa50c51d43006d6883cbef4b6655ea2c"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-LICENSE.txt",
+   "name": "data/results/LICENSE.txt",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/LICENSE.txt",
+   "encodingFormat": "text/plain",
+   "contentSize": "897 B",
+   "sha256": "26d5db55fb7f75f614efc5d961449d07f9b31fd7a252f4d80de6f440ffbf9af0"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-README.md",
+   "name": "data/results/README.md",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/README.md",
+   "encodingFormat": "text/markdown",
+   "contentSize": "4675 B",
+   "sha256": "8a7fede4a694b4b2f9257e3314fc1bb79a7c0e42f6cc447a1616b3b9abc0d474"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-SCHEMA.md",
+   "name": "data/results/audit/SCHEMA.md",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/SCHEMA.md",
+   "encodingFormat": "text/markdown",
+   "contentSize": "8336 B",
+   "sha256": "0a96b03b5692d5568a599e27c4f2c4ae01ed8866f66c748dca590dd2b5f402ff"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-alternate256_prefix_counts.csv.gz",
+   "name": "data/results/audit/alternate256_prefix_counts.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/alternate256_prefix_counts.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "605 B",
+   "sha256": "6eec92ab593267eb1197c5726320986b3c749b90a5f5e8196207fcdb88cb2ffd"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-byte_crossing_members.csv.gz",
+   "name": "data/results/audit/byte_crossing_members.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/byte_crossing_members.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "11955 B",
+   "sha256": "fb4f2accb94f2ca39ced3e5109349d24694be920e8681f55ae6631a020a660d7"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-filter_assignments.csv.gz",
+   "name": "data/results/audit/filter_assignments.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/filter_assignments.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "24466 B",
+   "sha256": "a1571881f346569d82a1793072d38bd0844ed61eb657d6eb9c98e0663a8212af"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-hash_screen.csv.gz",
+   "name": "data/results/audit/hash_screen.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/hash_screen.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "1039425 B",
+   "sha256": "45e6c6313a68afd646ba204c05ca8a64c5b1f3ba50c359c257793bd430d35156"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-internal_phash_pairs.csv.gz",
+   "name": "data/results/audit/internal_phash_pairs.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/internal_phash_pairs.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "103378 B",
+   "sha256": "dd037687ddb098eccb2dfc0fb24fd531a5ce2d510f9e163e65ace6cf17c9a5a3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-internal_validation_counters.csv.gz",
+   "name": "data/results/audit/internal_validation_counters.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/internal_validation_counters.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "37231 B",
+   "sha256": "7b0b4eb1da6fc0008737aef3983d66ff94c062e104455ed1919e50f49293ea46"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-kvasir_prefix41.csv.gz",
+   "name": "data/results/audit/kvasir_prefix41.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/kvasir_prefix41.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "835 B",
+   "sha256": "7513cbb434ff2bb4bcb1ca161885dd9534ffea936a45438d60dd8ba6e44ffdbf"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-nonkvasir_internal_pairs.csv.gz",
+   "name": "data/results/audit/nonkvasir_internal_pairs.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/nonkvasir_internal_pairs.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "5108 B",
+   "sha256": "12561756744756583f99f861dbc366ed59e5cd2057ab934d8b845d642005b4db"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-source_selected_pairs.csv.gz",
+   "name": "data/results/audit/source_selected_pairs.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/source_selected_pairs.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "688326 B",
+   "sha256": "45e81ea999192556217c3ee85ac09c31215dcc089ad3e1daaf738cd1c31f92c8"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-audit-ssim_control_pairs.csv.gz",
+   "name": "data/results/audit/ssim_control_pairs.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/audit/ssim_control_pairs.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "285245 B",
+   "sha256": "52ad0b94a1788a440ce8427dd412ad2237f08b393fdb4142453b27057c1700d3"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-SCHEMA.md",
+   "name": "data/results/inputs/SCHEMA.md",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/SCHEMA.md",
+   "encodingFormat": "text/markdown",
+   "contentSize": "6848 B",
+   "sha256": "0226e8c66ba02136b3e1474b379849026814851482c16e3e1ace334da6b28acc"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-evaluation_memberships.csv.gz",
+   "name": "data/results/inputs/evaluation_memberships.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/evaluation_memberships.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "45259 B",
+   "sha256": "c7117018089433bb7b4192b8848240511da3e083fc5a930a10afe3061ed42e27"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-local_evaluation.csv.gz",
+   "name": "data/results/inputs/local_evaluation.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/local_evaluation.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "15334 B",
+   "sha256": "0ee80c8616c18ccb62aff1a2a03afadeae33bb1c8de3ec9c9c13a40fe6934404"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-local_parent_memberships.csv.gz",
+   "name": "data/results/inputs/local_parent_memberships.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/local_parent_memberships.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "7388 B",
+   "sha256": "0b221451d88df7a11713efa1d98b846c110ea3b5c5f1f83cf5535da67023156b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-local_removals.csv.gz",
+   "name": "data/results/inputs/local_removals.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/local_removals.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "78867 B",
+   "sha256": "d1631a2ed047285e495f4beb88dea1268f9509a641df94527f6d1079ca29c1c7"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-primary_memberships.csv.gz",
+   "name": "data/results/inputs/primary_memberships.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/primary_memberships.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "557439 B",
+   "sha256": "f1be51a193943a14603a983b2d7bcf975e58aa79e5af47cc94b32bc4d0b71648"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-training.csv.gz",
+   "name": "data/results/inputs/training.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/training.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "208933 B",
+   "sha256": "59589c2f37a0a34d1de0874a4473d08e1790ed90029bfb2584e1eaa3587e031d"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-inputs-validation.csv.gz",
+   "name": "data/results/inputs/validation.csv.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/inputs/validation.csv.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "90151 B",
+   "sha256": "e9e97d55e416f64ff063a495fa7858342ed0af4b9078e2a06d1990cbe9625d51"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-numerical-README.md",
+   "name": "data/results/numerical/README.md",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/numerical/README.md",
+   "encodingFormat": "text/markdown",
+   "contentSize": "3299 B",
+   "sha256": "ffe66497311879a1fc46940b3486f5c5f1eebba5338babe64d44c2af39b6c54b"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-numerical-entry_scores.json.gz",
+   "name": "data/results/numerical/entry_scores.json.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/numerical/entry_scores.json.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "2518 B",
+   "sha256": "3588f466db0c84547602b21336edee6e271b406064bdc206ae3f4072a581d502"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-numerical-local_probabilities.npz",
+   "name": "data/results/numerical/local_probabilities.npz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/numerical/local_probabilities.npz",
+   "encodingFormat": "application/octet-stream",
+   "contentSize": "1973853 B",
+   "sha256": "3cc46ea105c42b6ad6054b64ea240e3ea91b5fd9db4292eeebd84ed5633dd749"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-numerical-official_test.json.gz",
+   "name": "data/results/numerical/official_test.json.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/numerical/official_test.json.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "5669 B",
+   "sha256": "d69243fe7f9d545a74716e345a30dfe99828b93e773bf67db7115d8f97895bf7"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-numerical-reference_checks.json.gz",
+   "name": "data/results/numerical/reference_checks.json.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/numerical/reference_checks.json.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "13600 B",
+   "sha256": "5af49fc38cde2c02daa3041d71c4a2a7c6f22212db134b5821e1ecc01b53a0e6"
+  },
+  {
+   "@type": "cr:FileObject",
+   "@id": "file-data-results-numerical-seed_metrics.json.gz",
+   "name": "data/results/numerical/seed_metrics.json.gz",
+   "contentUrl": "https://raw.githubusercontent.com/eunseobchoi/ReuScope/main/data/results/numerical/seed_metrics.json.gz",
+   "encodingFormat": "text/csv",
+   "contentSize": "58947 B",
+   "sha256": "22aa99bc6ee8c67d21abf5d36c6ac0578f2d9daee2ceddcbb83065b52b7832c5"
+  }
+ ],
+ "recordSet": [
+  {
+   "@type": "cr:RecordSet",
+   "@id": "training",
+   "name": "training",
+   "description": "CV2024 public training rows in workbook order with stable row IDs, released source and one-hot labels.",
+   "field": [
+    {
+     "@type": "cr:Field",
+     "@id": "training/row_id",
+     "name": "row_id",
+     "description": "Stable training row ID.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "row_id"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/image_path",
+     "name": "image_path",
+     "description": "Path relative to the CV2024 dataset root.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "image_path"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Dataset",
+     "name": "Dataset",
+     "description": "Released source: KVASIR, SEE-AI, KID or AIIMS.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Dataset"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Angioectasia",
+     "name": "Angioectasia",
+     "description": "Released one-hot label for Angioectasia.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Angioectasia"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Bleeding",
+     "name": "Bleeding",
+     "description": "Released one-hot label for Bleeding.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Bleeding"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Erosion",
+     "name": "Erosion",
+     "description": "Released one-hot label for Erosion.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Erosion"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Erythema",
+     "name": "Erythema",
+     "description": "Released one-hot label for Erythema.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Erythema"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Foreign_Body",
+     "name": "Foreign Body",
+     "description": "Released one-hot label for Foreign Body.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Foreign Body"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Lymphangiectasia",
+     "name": "Lymphangiectasia",
+     "description": "Released one-hot label for Lymphangiectasia.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Lymphangiectasia"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Normal",
+     "name": "Normal",
+     "description": "Released one-hot label for Normal.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Normal"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Polyp",
+     "name": "Polyp",
+     "description": "Released one-hot label for Polyp.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Polyp"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Ulcer",
+     "name": "Ulcer",
+     "description": "Released one-hot label for Ulcer.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Ulcer"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "training/Worms",
+     "name": "Worms",
+     "description": "Released one-hot label for Worms.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-training.csv.gz"
+      },
+      "extract": {
+       "column": "Worms"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "@type": "cr:RecordSet",
+   "@id": "validation",
+   "name": "validation",
+   "description": "CV2024 public validation rows in workbook order with stable row IDs, released source and one-hot labels.",
+   "field": [
+    {
+     "@type": "cr:Field",
+     "@id": "validation/row_id",
+     "name": "row_id",
+     "description": "Stable validation row ID.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "row_id"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/image_path",
+     "name": "image_path",
+     "description": "Path relative to the CV2024 dataset root.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "image_path"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Dataset",
+     "name": "Dataset",
+     "description": "Released source: KVASIR, SEE-AI, KID or AIIMS.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Dataset"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Angioectasia",
+     "name": "Angioectasia",
+     "description": "Released one-hot label for Angioectasia.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Angioectasia"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Bleeding",
+     "name": "Bleeding",
+     "description": "Released one-hot label for Bleeding.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Bleeding"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Erosion",
+     "name": "Erosion",
+     "description": "Released one-hot label for Erosion.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Erosion"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Erythema",
+     "name": "Erythema",
+     "description": "Released one-hot label for Erythema.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Erythema"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Foreign_Body",
+     "name": "Foreign Body",
+     "description": "Released one-hot label for Foreign Body.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Foreign Body"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Lymphangiectasia",
+     "name": "Lymphangiectasia",
+     "description": "Released one-hot label for Lymphangiectasia.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Lymphangiectasia"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Normal",
+     "name": "Normal",
+     "description": "Released one-hot label for Normal.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Normal"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Polyp",
+     "name": "Polyp",
+     "description": "Released one-hot label for Polyp.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Polyp"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Ulcer",
+     "name": "Ulcer",
+     "description": "Released one-hot label for Ulcer.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Ulcer"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "validation/Worms",
+     "name": "Worms",
+     "description": "Released one-hot label for Worms.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-validation.csv.gz"
+      },
+      "extract": {
+       "column": "Worms"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "@type": "cr:RecordSet",
+   "@id": "primary_memberships",
+   "name": "primary_memberships",
+   "description": "Ordered membership of the ten non-Full primary training pools; Full is represented by the training RecordSet.",
+   "field": [
+    {
+     "@type": "cr:Field",
+     "@id": "primary_memberships/pool",
+     "name": "pool",
+     "description": "Training pool name (e.g. Removal, Source-only, Random, Comp).",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-primary_memberships.csv.gz"
+      },
+      "extract": {
+       "column": "pool"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "primary_memberships/position",
+     "name": "position",
+     "description": "Zero-based order within the pool.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-primary_memberships.csv.gz"
+      },
+      "extract": {
+       "column": "position"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "primary_memberships/row_id",
+     "name": "row_id",
+     "description": "Training row ID; repeated rows are kept.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-primary_memberships.csv.gz"
+      },
+      "extract": {
+       "column": "row_id"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "@type": "cr:RecordSet",
+   "@id": "evaluation_memberships",
+   "name": "evaluation_memberships",
+   "description": "Ordered membership of the non-KVASIR and internal-filtered validation views.",
+   "field": [
+    {
+     "@type": "cr:Field",
+     "@id": "evaluation_memberships/view",
+     "name": "view",
+     "description": "Evaluation view: non_kvasir or filtered.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-evaluation_memberships.csv.gz"
+      },
+      "extract": {
+       "column": "view"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "evaluation_memberships/position",
+     "name": "position",
+     "description": "Zero-based order within the view.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-evaluation_memberships.csv.gz"
+      },
+      "extract": {
+       "column": "position"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "evaluation_memberships/row_id",
+     "name": "row_id",
+     "description": "Validation row ID.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-inputs-evaluation_memberships.csv.gz"
+      },
+      "extract": {
+       "column": "row_id"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "@type": "cr:RecordSet",
+   "@id": "hash_screen",
+   "name": "hash_screen",
+   "description": "64-bit pHash/dHash of every public row and independent minimum distances to the Kvasir-Capsule reference.",
+   "field": [
+    {
+     "@type": "cr:Field",
+     "@id": "hash_screen/row_id",
+     "name": "row_id",
+     "description": "Training or validation row ID.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-hash_screen.csv.gz"
+      },
+      "extract": {
+       "column": "row_id"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "hash_screen/phash",
+     "name": "phash",
+     "description": "64-bit pHash (hex).",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-hash_screen.csv.gz"
+      },
+      "extract": {
+       "column": "phash"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "hash_screen/dhash",
+     "name": "dhash",
+     "description": "64-bit dHash (hex).",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-hash_screen.csv.gz"
+      },
+      "extract": {
+       "column": "dhash"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "hash_screen/min_phash",
+     "name": "min_phash",
+     "description": "Minimum pHash Hamming distance to the reference.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-hash_screen.csv.gz"
+      },
+      "extract": {
+       "column": "min_phash"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "hash_screen/min_dhash",
+     "name": "min_dhash",
+     "description": "Minimum dHash Hamming distance to the reference.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-hash_screen.csv.gz"
+      },
+      "extract": {
+       "column": "min_dhash"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "hash_screen/phash_ties",
+     "name": "phash_ties",
+     "description": "Number of references at the minimum pHash distance.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-hash_screen.csv.gz"
+      },
+      "extract": {
+       "column": "phash_ties"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "hash_screen/screen_positive",
+     "name": "screen_positive",
+     "description": "1 if both minima are at most 6.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-hash_screen.csv.gz"
+      },
+      "extract": {
+       "column": "screen_positive"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "@type": "cr:RecordSet",
+   "@id": "byte_crossing_members",
+   "name": "byte_crossing_members",
+   "description": "Members of the SHA-256 groups that cross the public training-validation boundary.",
+   "field": [
+    {
+     "@type": "cr:Field",
+     "@id": "byte_crossing_members/group_position",
+     "name": "group_position",
+     "description": "Group index.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-byte_crossing_members.csv.gz"
+      },
+      "extract": {
+       "column": "group_position"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "byte_crossing_members/member_position",
+     "name": "member_position",
+     "description": "Member index within the group.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-byte_crossing_members.csv.gz"
+      },
+      "extract": {
+       "column": "member_position"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "byte_crossing_members/sha256",
+     "name": "sha256",
+     "description": "SHA-256 digest of the file bytes.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-byte_crossing_members.csv.gz"
+      },
+      "extract": {
+       "column": "sha256"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "byte_crossing_members/row_id",
+     "name": "row_id",
+     "description": "Training or validation row ID.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-byte_crossing_members.csv.gz"
+      },
+      "extract": {
+       "column": "row_id"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "byte_crossing_members/label_sets_intersect",
+     "name": "label_sets_intersect",
+     "description": "1 if training and validation label sets of the group intersect.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-byte_crossing_members.csv.gz"
+      },
+      "extract": {
+       "column": "label_sets_intersect"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "@type": "cr:RecordSet",
+   "@id": "internal_phash_pairs",
+   "name": "internal_phash_pairs",
+   "description": "KVASIR training-validation pairs with identical pHash and their 96x96 NCC.",
+   "field": [
+    {
+     "@type": "cr:Field",
+     "@id": "internal_phash_pairs/position",
+     "name": "position",
+     "description": "Pair index.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-internal_phash_pairs.csv.gz"
+      },
+      "extract": {
+       "column": "position"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "internal_phash_pairs/train_row_id",
+     "name": "train_row_id",
+     "description": "Training row ID.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-internal_phash_pairs.csv.gz"
+      },
+      "extract": {
+       "column": "train_row_id"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "internal_phash_pairs/val_row_id",
+     "name": "val_row_id",
+     "description": "Validation row ID.",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-internal_phash_pairs.csv.gz"
+      },
+      "extract": {
+       "column": "val_row_id"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "internal_phash_pairs/phash",
+     "name": "phash",
+     "description": "Shared 64-bit pHash (hex).",
+     "dataType": "sc:Text",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-internal_phash_pairs.csv.gz"
+      },
+      "extract": {
+       "column": "phash"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "internal_phash_pairs/ncc96",
+     "name": "ncc96",
+     "description": "Normalized cross-correlation at 96x96 grayscale.",
+     "dataType": "sc:Float",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-internal_phash_pairs.csv.gz"
+      },
+      "extract": {
+       "column": "ncc96"
+      }
+     }
+    },
+    {
+     "@type": "cr:Field",
+     "@id": "internal_phash_pairs/selected",
+     "name": "selected",
+     "description": "1 for the first lexicographic counterpart of the validation row.",
+     "dataType": "sc:Integer",
+     "source": {
+      "fileObject": {
+       "@id": "file-data-results-audit-internal_phash_pairs.csv.gz"
+      },
+      "extract": {
+       "column": "selected"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

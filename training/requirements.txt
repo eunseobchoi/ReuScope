@@ -1,0 +1,10 @@
+# Environment recorded for the CNN runs (Python 3.10.18, CUDA 12.4, cuDNN 9.1).
+# The DINOv2 and official-test runs recorded PyTorch 2.6.0+cu124, CUDA 12.4 and
+# cuDNN 9.1 (primary: TorchVision 0.21.0, Pillow 12.1.1); their other versions were not recorded.
+# pip install -r training/requirements.txt --extra-index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0
+torchvision==0.21.0
+numpy==2.2.6
+pandas==2.3.3
+scikit-learn==1.7.2
+Pillow==12.1.1

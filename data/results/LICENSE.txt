@@ -1,0 +1,16 @@
+ReuScope numerical evidence
+Copyright (c) 2026 Eunseob Choi, Kyeonghun Kim, Hyuk-Jae Lee and Nam-Joon Kim
+
+The authors' measurements, predictions and derived numerical results in the
+data/ folder of this repository (data/results and data/predictions) are licensed under the Creative Commons Attribution 4.0 International
+License (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution: Choi et al., ReuScope: Auditing Data Reuse and Evaluation Sensitivity
+in Capsule Vision 2024, NeurIPS 2026 (Evaluations and Datasets).
+https://github.com/eunseobchoi/ReuScope
+
+Adapted public dataset paths, labels and source identifiers retain provider
+attribution and applicable terms as detailed in README.md. The authors' license
+does not replace third-party terms or grant rights to images or pretrained
+weights. Author-written software in the linked repository uses the MIT License.
